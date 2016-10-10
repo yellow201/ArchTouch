@@ -22,6 +22,8 @@
 		A008D8D41DA959370017BF86 /* DownloadMovieDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A008D8D31DA959370017BF86 /* DownloadMovieDataManager.m */; };
 		A008D8D81DA960A00017BF86 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = A008D8D71DA960A00017BF86 /* Movie.m */; };
 		A0D9D96A1DAB1E1200656BC7 /* MovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D9D9691DAB1E1200656BC7 /* MovieDetailsViewController.m */; };
+		A0D9D96D1DAB4C6000656BC7 /* screenshot menu.png in Resources */ = {isa = PBXBuildFile; fileRef = A0D9D96C1DAB4C6000656BC7 /* screenshot menu.png */; };
+		A0D9D96F1DAB4C9800656BC7 /* screenshot details.png in Resources */ = {isa = PBXBuildFile; fileRef = A0D9D96E1DAB4C9800656BC7 /* screenshot details.png */; };
 		B715910123D8254F4BFB5CB4 /* libPods-ArchTouchUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF740472952D1D647AEB0A24 /* libPods-ArchTouchUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,8 @@
 		A008D8D71DA960A00017BF86 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		A0D9D9681DAB1E1200656BC7 /* MovieDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailsViewController.h; sourceTree = "<group>"; };
 		A0D9D9691DAB1E1200656BC7 /* MovieDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsViewController.m; sourceTree = "<group>"; };
+		A0D9D96C1DAB4C6000656BC7 /* screenshot menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screenshot menu.png"; sourceTree = "<group>"; };
+		A0D9D96E1DAB4C9800656BC7 /* screenshot details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screenshot details.png"; sourceTree = "<group>"; };
 		FF740472952D1D647AEB0A24 /* libPods-ArchTouchUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArchTouchUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,6 +124,7 @@
 		A008D88B1DA94C870017BF86 = {
 			isa = PBXGroup;
 			children = (
+				A0D9D96B1DAB4B8B00656BC7 /* screenshots */,
 				A008D8961DA94C870017BF86 /* ArchTouch */,
 				A008D8B01DA94C880017BF86 /* ArchTouchTests */,
 				A008D8BB1DA94C880017BF86 /* ArchTouchUITests */,
@@ -220,6 +225,15 @@
 				A008D8D71DA960A00017BF86 /* Movie.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		A0D9D96B1DAB4B8B00656BC7 /* screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				A0D9D96E1DAB4C9800656BC7 /* screenshot details.png */,
+				A0D9D96C1DAB4C6000656BC7 /* screenshot menu.png */,
+			);
+			name = screenshots;
 			sourceTree = "<group>";
 		};
 		CDEAF72E44571B44616A5375 /* Pods */ = {
@@ -349,10 +363,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D9D96D1DAB4C6000656BC7 /* screenshot menu.png in Resources */,
 				A008D8CD1DA956070017BF86 /* CustomMovieTableCell.xib in Resources */,
 				A008D8A71DA94C870017BF86 /* LaunchScreen.storyboard in Resources */,
 				A008D8A41DA94C870017BF86 /* Assets.xcassets in Resources */,
 				A008D8A21DA94C870017BF86 /* Main.storyboard in Resources */,
+				A0D9D96F1DAB4C9800656BC7 /* screenshot details.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
