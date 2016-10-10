@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="138" id="Uzv-hX-cBX" customClass="CustomMovieTableCell">
+            <rect key="frame" x="0.0" y="0.0" width="494" height="138"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uzv-hX-cBX" id="qhU-Ye-eKF">
+                <frame key="frameInset" width="494" height="138"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlightedImage="photo_not_available" translatesAutoresizingMaskIntoConstraints="NO" id="ygw-zN-DGX">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="125" id="XoK-k3-xZR"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfa-Dx-oTd">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="8ku-3r-39e"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10n-o9-lll">
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhh-oA-oO8">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="oXc-zG-wCr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="bfa-Dx-oTd" secondAttribute="bottom" constant="13" id="0Hd-pc-mbT"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ygw-zN-DGX" secondAttribute="bottom" constant="-1" id="8g8-7S-XSn"/>
+                    <constraint firstItem="Rhh-oA-oO8" firstAttribute="top" secondItem="10n-o9-lll" secondAttribute="bottom" constant="1" id="J1q-XL-PpF"/>
+                    <constraint firstItem="10n-o9-lll" firstAttribute="trailing" secondItem="Rhh-oA-oO8" secondAttribute="trailing" id="MF8-O3-gip"/>
+                    <constraint firstItem="bfa-Dx-oTd" firstAttribute="top" secondItem="Rhh-oA-oO8" secondAttribute="bottom" constant="2" id="UEK-Rl-5Cd"/>
+                    <constraint firstItem="10n-o9-lll" firstAttribute="leading" secondItem="ygw-zN-DGX" secondAttribute="trailing" constant="8" symbolic="YES" id="VCa-nP-ZUz"/>
+                    <constraint firstItem="ygw-zN-DGX" firstAttribute="top" secondItem="qhU-Ye-eKF" secondAttribute="topMargin" constant="-3" id="fqk-C3-ZVj"/>
+                    <constraint firstItem="ygw-zN-DGX" firstAttribute="leading" secondItem="qhU-Ye-eKF" secondAttribute="leadingMargin" id="hJl-ym-LH7"/>
+                    <constraint firstItem="Rhh-oA-oO8" firstAttribute="leading" secondItem="bfa-Dx-oTd" secondAttribute="leading" id="pmm-gR-vSP"/>
+                    <constraint firstItem="10n-o9-lll" firstAttribute="top" secondItem="qhU-Ye-eKF" secondAttribute="topMargin" constant="15" id="qFh-lp-hEA"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="10n-o9-lll" secondAttribute="trailing" constant="8" id="rKg-O1-CjZ"/>
+                    <constraint firstItem="Rhh-oA-oO8" firstAttribute="trailing" secondItem="bfa-Dx-oTd" secondAttribute="trailing" id="uEA-pK-Gyp"/>
+                    <constraint firstItem="10n-o9-lll" firstAttribute="leading" secondItem="Rhh-oA-oO8" secondAttribute="leading" id="vGJ-S0-lDj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLbl" destination="bfa-Dx-oTd" id="qlD-PL-PsC"/>
+                <outlet property="genereLbl" destination="Rhh-oA-oO8" id="Ccb-Pd-2Aa"/>
+                <outlet property="imageView" destination="ygw-zN-DGX" id="heu-Vk-c4d"/>
+                <outlet property="nameLbl" destination="10n-o9-lll" id="nZH-kA-zxP"/>
+            </connections>
+            <point key="canvasLocation" x="46" y="-101"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="photo_not_available" width="200" height="150"/>
+    </resources>
+</document>
