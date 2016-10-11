@@ -28,6 +28,7 @@ const int icon_corner_radius = 10;
     self.moviesTableView.dataSource = self;
     self.searchBar.delegate = self;
     
+    //Register custom table view cell
     [self.moviesTableView registerNib:[UINib nibWithNibName:@"CustomMovieTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:reuseIdentifier];
 }
 
@@ -50,13 +51,13 @@ const int icon_corner_radius = 10;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    // Check for the proper data according to the search criteria (if any)
     if(isFiltered == NO){
         return self.moviesList.count;
     }else{
         return self.filteredTableData.count;
     }
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 150;
@@ -72,6 +73,7 @@ const int icon_corner_radius = 10;
     
     Movie* movie;
     
+    //Search flag - Used for the UISearchBar
     if(isFiltered == NO){
         movie = [self.moviesList objectAtIndex:indexPath.row];
     }else{
@@ -82,7 +84,7 @@ const int icon_corner_radius = 10;
     cell.nameLbl.lineBreakMode = NSLineBreakByWordWrapping;
     cell.nameLbl.numberOfLines = 0;
     
-    // JSON DATA CHECK
+    // JSON DATA CHECK - DATA ERROR VALIDATION
     if(![movie.imageURL isEqual:[NSNull null]] && movie.imageURL.length != 0){
         poster_path = [imagesurl stringByAppendingString:[movie imageURL]];
     }
@@ -105,6 +107,7 @@ const int icon_corner_radius = 10;
         [cell.dateLbl setText:@"N/A"];
     }
     
+    //CustomCell round corners
     cell.imageView.layer.cornerRadius = icon_corner_radius;
     cell.imageView.clipsToBounds = YES;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -129,6 +132,10 @@ const int icon_corner_radius = 10;
 }
 
 #pragma mark - Network related methods
+/*
+ * Downloads the movie list data and reloads the UItableView data
+ *
+ */
 -(void)reloadMovieData{
     DownloadMovieDataManager *manager = [[DownloadMovieDataManager alloc]init];
     [manager getMovieDataWithHanlder:^(NSArray *moviesArr, NSError *error){

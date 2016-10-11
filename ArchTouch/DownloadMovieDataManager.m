@@ -15,6 +15,10 @@ static int maxNumberOfMovies = 50;
 
 
 #pragma mark - GET response methods
+
+/*
+ * get the list of movies bases on the web API
+ */
 -(void)getMovieDataWithHanlder:(void(^)(NSArray *movies, NSError *error))handler{
     NSURL *requestURL = [[NSURL alloc] initWithString:apiUrl];
     NSURLSession* session = [NSURLSession sharedSession];
@@ -50,6 +54,11 @@ static int maxNumberOfMovies = 50;
      resume];
 }
 
+#pragma mark - auxiliar methods
+/*
+ *Sorts the movile list by release date
+ *
+ */
 -(NSArray*) getSortedMoviesByDate:(NSMutableArray* )movies{
     NSArray *sortedMoviesArray = [movies sortedArrayUsingComparator:
                                   ^(id obj1, id obj2) {

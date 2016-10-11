@@ -13,6 +13,7 @@
 
 
 -(void)getMovieDataWithHanlder:(void(^)(NSArray *movies, NSError *error))handler;
+-(NSArray*) getSortedMoviesByDate:(NSMutableArray* )movies;
 
 
 @end
