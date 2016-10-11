@@ -40,20 +40,26 @@ static int maxNumberOfMovies = 50;
                         [movies addObject:movie];
                     }
                     
-                    NSArray *sortedMoviesArray = [movies sortedArrayUsingComparator:
-                                                            ^(id obj1, id obj2) {
-                                                                Movie* m1 = obj1;
-                                                                Movie* m2 = obj2;
-                                                                
-                                                                return [m1.date compare:m2.date];
-                                                            }];
-                    
+                    NSArray *sortedMoviesArray = [self getSortedMoviesByDate:movies];
                     handler(sortedMoviesArray, error);
+                    
                 }else{
                     NSLog(@"Error getting data, %@", [error localizedDescription]);
                 }
             }]
      resume];
+}
+
+-(NSArray*) getSortedMoviesByDate:(NSMutableArray* )movies{
+    NSArray *sortedMoviesArray = [movies sortedArrayUsingComparator:
+                                  ^(id obj1, id obj2) {
+                                      Movie* m1 = obj1;
+                                      Movie* m2 = obj2;
+                                      
+                                      return [m1.date compare:m2.date];
+                                  }];
+    
+    return sortedMoviesArray;
 }
 
 @end
