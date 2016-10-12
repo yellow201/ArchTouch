@@ -15,13 +15,13 @@
 @implementation ViewController
 
 static NSString* const reuseIdentifier = @"customcellview";
-static NSString* const imagesurl = @"https://image.tmdb.org/t/p/w500/";
 
 bool isFiltered = NO;
 const int icon_corner_radius = 10;
 
 
 #pragma mark - Life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.moviesTableView.delegate = self;
@@ -46,6 +46,7 @@ const int icon_corner_radius = 10;
 }
 
 #pragma mark - UITableView delegate and data source methods
+
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -86,7 +87,7 @@ const int icon_corner_radius = 10;
     
     // JSON DATA CHECK - DATA ERROR VALIDATION
     if(![movie.imageURL isEqual:[NSNull null]] && movie.imageURL.length != 0){
-        poster_path = [imagesurl stringByAppendingString:[movie imageURL]];
+        poster_path = [GET_IMAGE_URL stringByAppendingString:[movie imageURL]];
     }
     
     if( ![movie.name isEqual:[NSNull null]] && movie.name != nil){
@@ -121,6 +122,7 @@ const int icon_corner_radius = 10;
 }
 
 #pragma mark - Navigation
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"movieDetails"]){
         MovieDetailsViewController *vc = [segue destinationViewController];
@@ -132,6 +134,7 @@ const int icon_corner_radius = 10;
 }
 
 #pragma mark - Network related methods
+
 /*
  * Downloads the movie list data and reloads the UItableView data
  *
@@ -150,7 +153,7 @@ const int icon_corner_radius = 10;
 
 #pragma mark - Search bar delegate methods
 -(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text{
-    if(text.length == 0){
+    if(text.length == 0){ //hide keyboard whenever there is no text to search
         isFiltered = FALSE;
         [searchBar resignFirstResponder];
     }else{
@@ -159,7 +162,7 @@ const int icon_corner_radius = 10;
         
         for (Movie* movie in self.moviesList){
             NSRange nameRange = [movie.name rangeOfString:text options:NSCaseInsensitiveSearch];
-            NSRange descriptionRange = [movie.description rangeOfString:text options:NSCaseInsensitiveSearch];
+            NSRange descriptionRange = [movie.description rangeOfString:text options:NSCaseInsensitiveSearch]; //Search criteria in movie title
             
             if(nameRange.location != NSNotFound || descriptionRange.location != NSNotFound){
                 [self.filteredTableData addObject:movie];

@@ -8,10 +8,10 @@
 
 #import "DownloadMovieDataManager.h"
 
+
 @implementation DownloadMovieDataManager
 
-static NSString* apiUrl = @"http://api.themoviedb.org/3/movie/upcoming?api_key=1f54bd990f1cdfb230adb312546d765d";
-static int maxNumberOfMovies = 50;
+static int const maxNumberOfMovies = 50;
 
 
 #pragma mark - GET response methods
@@ -20,9 +20,10 @@ static int maxNumberOfMovies = 50;
  * get the list of movies bases on the web API
  */
 -(void)getMovieDataWithHanlder:(void(^)(NSArray *movies, NSError *error))handler{
-    NSURL *requestURL = [[NSURL alloc] initWithString:apiUrl];
+    NSURL *requestURL = [[NSURL alloc] initWithString:GET_MOVIES_URL];
     NSURLSession* session = [NSURLSession sharedSession];
     
+    //Response handling and JSON parsing
     [[session dataTaskWithURL:requestURL
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
@@ -35,17 +36,18 @@ static int maxNumberOfMovies = 50;
                     int maxMovieIndex = 0;
                     
                     for (NSDictionary *movieDict in mDict){
-                        if(maxMovieIndex >= maxNumberOfMovies){
+                        if(maxMovieIndex >= maxNumberOfMovies){ //Take only the first 'maxNumberOfMovies'
                             break;
                         }
                         
                         Movie *movie = [[Movie alloc]initWithName:[movieDict objectForKey:@"title"] overview:[movieDict objectForKey:@"overview"] genre:[movieDict objectForKey:@"title"] releaseDate:[movieDict objectForKey:@"release_date"] andImageURL:[movieDict objectForKey:@"poster_path"]];
                         
+                        maxMovieIndex++;
                         [movies addObject:movie];
                     }
                     
                     NSArray *sortedMoviesArray = [self getSortedMoviesByDate:movies];
-                    handler(sortedMoviesArray, error);
+                    handler(sortedMoviesArray, error); //Array of Movies with possible error
                     
                 }else{
                     NSLog(@"Error getting data, %@", [error localizedDescription]);
@@ -55,6 +57,7 @@ static int maxNumberOfMovies = 50;
 }
 
 #pragma mark - auxiliar methods
+
 /*
  *Sorts the movile list by release date
  *

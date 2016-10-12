@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		073052211DAEACBE00443CB0 /* Services.m in Sources */ = {isa = PBXBuildFile; fileRef = 073052201DAEACBE00443CB0 /* Services.m */; };
 		073B78621DAD6518003FF3B8 /* DownloadMovieDataManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 073B78611DAD6518003FF3B8 /* DownloadMovieDataManagerTest.m */; };
 		07ADBCD11DAD8CF500F1E163 /* README.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 07ADBCD01DAD8CF500F1E163 /* README.rtf */; };
 		56BCB65EC2896137D2083EA8 /* libPods-ArchTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B46F1195B609B67A3F7D61 /* libPods-ArchTouch.a */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0730521F1DAEACBE00443CB0 /* Services.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Services.h; sourceTree = "<group>"; };
+		073052201DAEACBE00443CB0 /* Services.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Services.m; sourceTree = "<group>"; };
 		073B78611DAD6518003FF3B8 /* DownloadMovieDataManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadMovieDataManagerTest.m; sourceTree = "<group>"; };
 		07ADBCD01DAD8CF500F1E163 /* README.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = README.rtf; sourceTree = "<group>"; };
 		10B46F1195B609B67A3F7D61 /* libPods-ArchTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArchTouch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +118,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0730521E1DAEAC2600443CB0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0730521F1DAEACBE00443CB0 /* Services.h */,
+				073052201DAEACBE00443CB0 /* Services.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		2121672BA7ED455709AA9497 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +164,7 @@
 		A008D8961DA94C870017BF86 /* ArchTouch */ = {
 			isa = PBXGroup;
 			children = (
+				0730521E1DAEAC2600443CB0 /* Common */,
 				A008D8D51DA9608F0017BF86 /* Models */,
 				A008D8D11DA959070017BF86 /* Networking */,
 				A008D8CB1DA955C00017BF86 /* Views */,
@@ -524,6 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A008D8D81DA960A00017BF86 /* Movie.m in Sources */,
+				073052211DAEACBE00443CB0 /* Services.m in Sources */,
 				A008D8D41DA959370017BF86 /* DownloadMovieDataManager.m in Sources */,
 				A008D8D01DA958100017BF86 /* CustomMovieTableCell.m in Sources */,
 				A0D9D96A1DAB1E1200656BC7 /* MovieDetailsViewController.m in Sources */,

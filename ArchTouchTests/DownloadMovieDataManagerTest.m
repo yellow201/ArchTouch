@@ -9,18 +9,29 @@
 #import <XCTest/XCTest.h>
 #import "DownloadMovieDataManager.h"
 #import "Movie.h"
+#import "ViewController.h"
+#import "CustomMovieTableCell.h"
 
 @interface DownloadMovieDataManagerTest : XCTestCase
+
+@property (nonatomic, strong) ViewController *viewController;
 
 @end
 
 @implementation DownloadMovieDataManagerTest
 
+
+
 DownloadMovieDataManager *downloadManager;
+
+
 
 - (void)setUp {
     [super setUp];
     downloadManager = [[DownloadMovieDataManager alloc]init];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self.viewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+    [self.viewController performSelectorOnMainThread:@selector(loadView) withObject:nil waitUntilDone:YES];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -68,6 +79,28 @@ DownloadMovieDataManager *downloadManager;
         [downloadManager getMovieDataWithHanlder:^(NSArray* movies, NSError *err){}];
     }];
 }
+
+-(void)testThatViewLoads
+{
+    XCTAssertNotNil(self.viewController.view, @"View not initiated properly");
+}
+
+- (void)testParentViewHasTableViewSubview
+{
+    NSArray *subviews = self.viewController.view.subviews;
+    
+    XCTAssertTrue([subviews containsObject:self.viewController.moviesTableView], @"No table view present");
+}
+
+-(void)isValidCustomCell{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    UITableViewCell* cell = [self.viewController.moviesTableView cellForRowAtIndexPath:indexPath];
+    
+    XCTAssertTrue([cell isKindOfClass:[CustomMovieTableCell class]], @"No table view present");
+}
+
+
+
 
 
 @end

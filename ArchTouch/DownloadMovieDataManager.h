@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Movie.h"
+#import "Services.h"
 
 @interface DownloadMovieDataManager : NSObject
 
